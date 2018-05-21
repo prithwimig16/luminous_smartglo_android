@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tfl.smartglow">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name=".SmartGlowApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".views.splashScreen.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".views.device.DeviceActivity" />
+        <activity android:name=".views.blueTooth.BlueToothActivity" />
+        <activity android:name=".views.welcomeHome.WelcomeHomeActivity" />
+        <activity android:name=".views.colorPicker.ColorPickerActivity" />
+
+        <service
+            android:name="com.jingxun.meshlibtelink.TelinkLightService"
+            android:exported="true" />
+
+        <activity android:name=".views.SliderPage.SliderActivity" />
+        <activity android:name=".views.LoginSignUp.LoginSignUpActivity" />
+        <activity android:name=".views.Login.LoginActivity"></activity>
+    </application>
+
+</manifest>

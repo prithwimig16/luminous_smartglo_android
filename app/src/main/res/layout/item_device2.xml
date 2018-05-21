@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_oops"
+        android:textSize="16sp"
+        android:textColor="#4a4a4a"
+        android:lineSpacingExtra="9sp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="We have found"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_device_no_found"
+        android:textSize="16sp"
+        android:textColor="#4a4a4a"
+        android:lineSpacingExtra="8sp"
+        android:layout_below="@+id/tv_oops"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="1 Luminous SmartGlo near you" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/oval1"
+        android:layout_centerInParent="true"
+        android:src="@drawable/oval"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/oval2"
+        android:layout_centerInParent="true"
+        android:src="@drawable/oval_copy"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/oval3"
+        android:layout_centerInParent="true"
+        android:src="@drawable/oval_4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_tap"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:layout_centerInParent="true"
+        android:lineSpacingExtra="-5sp"
+        android:gravity="center_horizontal"
+        android:text="TAP"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_below="@+id/tv_tap"
+        android:layout_centerInParent="true"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="9sp"
+        android:gravity="center_horizontal"
+        android:text="to add" />
+
+
+    <ImageView
+        android:id="@+id/img_bulb1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/oval3"
+        android:src="@drawable/slide3" />
+
+    <ImageView
+        android:id="@+id/img_bulb2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignBottom="@+id/tv_tap"
+        android:layout_toRightOf="@+id/oval2"
+        android:src="@drawable/slide3" />
+    <ImageView
+        android:id="@+id/img_bulb3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignBottom="@+id/tv_tap"
+        android:layout_toLeftOf="@id/oval3"
+        android:src="@drawable/slide3" />
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_search_tag"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#6b90ff"
+        android:layout_marginBottom="30dp"
+        android:text="Search Again?" />
+
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bitmap"
+    tools:context=".views.LoginSignUp.LoginSignUpActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/view_dummy"
+        android:layout_centerInParent="true">
+
+    </View>
+
+
+
+        <TextView
+            android:id="@+id/tv_greetings"
+            android:layout_width="189dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/view_dummy"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:lineSpacingExtra="10sp"
+            android:shadowColor="#c2000000"
+            android:shadowRadius="22"
+            android:text="Greetings
+from Luminous!"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+
+
+    <ImageView
+        android:id="@+id/img_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/bt_create_account" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_already_account_tag"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="11sp"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:text="Already have an account?" />
+
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".views.Login.LoginActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_back_button"
+            android:src="@drawable/ic_icon_backbutton1"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:layout_below="@id/toolbar_login">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginTop="20dp">
+            <!--android:layout_gravity="center"-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#202b5f"
+            android:lineSpacingExtra="15sp"
+            android:text="Please Login" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#4a4a4a"
+            android:lineSpacingExtra="6sp"
+            android:text="Adding more details will add more layer of
+security to your account"
+            />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/et_email"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Email"
+                android:padding="10dp"
+                android:gravity="start"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/et_password"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Password"
+                android:padding="10dp"
+                android:gravity="start"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:id="@+id/bt_login"
+                android:padding="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#ffffff"
+                android:text="Login"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
