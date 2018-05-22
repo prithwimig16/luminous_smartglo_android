@@ -12,4 +12,6 @@
     <string name="login_desc">Adding more details will add more layer of  \nsecurity to your account</string>
     <string name="email">Email</string>
     <string name="pasword">Password</string>
+    <string name="welcome_home">Welcome Home</string>
+    <string name="edit">Edit</string>
 </resources>

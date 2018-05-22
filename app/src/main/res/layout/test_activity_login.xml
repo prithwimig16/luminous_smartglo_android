@@ -68,6 +68,7 @@
                         android:background="@drawable/ic_et_bg"
                         android:hint="@string/email"
                         android:padding="@dimen/dp_10"
+                        android:singleLine="true"
                         android:textColorHint="@color/text_black"/>
 
                     <EditText
@@ -78,6 +79,7 @@
                         android:textColorHint="@color/text_black"
                         android:padding="@dimen/dp_10"
                         android:hint="@string/pasword"
+                        android:singleLine="true"
                         android:background="@drawable/ic_et_bg" />
 
 

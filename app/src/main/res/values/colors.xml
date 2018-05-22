@@ -10,4 +10,6 @@
     <color name="text_start">#6b90ff</color>
     <color name="text_end">#202b5f</color>
     <color name="text_black">#4a4a4a</color>
+
+    <color name="text_blue">#4c84ff</color>
 </resources>
