@@ -26,7 +26,6 @@
         android:layout_marginRight="18dp"
         app:itemSelectedColor="#202bf5"
         app:itemUnselectedColor="#e3e3e3">
-
     </it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator>
 
     <TextView

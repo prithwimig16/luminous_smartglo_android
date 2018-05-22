@@ -36,7 +36,7 @@ public class AndroidImageAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int i) {
         ImageView mImageView = new ImageView(mContext);
-        mImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        mImageView.setScaleType(ImageView.ScaleType.FIT_START);
         mImageView.setImageResource(sliderImagesId[i]);
         ((ViewPager) container).addView(mImageView, 0);
         return mImageView;

@@ -17,45 +17,44 @@ import tfl.smartglow.views.LoginSignUp.LoginSignUpActivity;
 import tfl.smartglow.views.welcomeHome.WelcomeHomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
-Button btLogin;
-EditText etEmail,etPassword;
-String MY_PREFS_NAME="Login";
+    Button btLogin;
+    EditText etEmail, etPassword;
+    String MY_PREFS_NAME = "Login";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.test_activity_login);
         Config.getSharedInstance().applicationContext = this.getApplicationContext();
         intView();
 
         //finish();
     }
 
-    private void intView(){
-        this.etEmail=(EditText) findViewById(R.id.et_email);
-        this.etPassword=(EditText) findViewById(R.id.et_password);
-        this.btLogin=(Button)findViewById(R.id.bt_login);
+    private void intView() {
+        this.etEmail = (EditText) findViewById(R.id.et_email);
+        this.etPassword = (EditText) findViewById(R.id.et_password);
+        this.btLogin = (Button) findViewById(R.id.bt_login);
         this.btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(etEmail.getText().toString().length()>2&&(etPassword.getText().toString().length()>2)){
+                if (etEmail.getText().toString().length() > 2 && (etPassword.getText().toString().length() > 2)) {
                     methodLogin();
-                    Intent i=new Intent(LoginActivity.this, WelcomeHomeActivity.class);
+                    Intent i = new Intent(LoginActivity.this, WelcomeHomeActivity.class);
                     startActivity(i);
-                }
-
-                else{
-                    Utils.alert("Please Enter Valid Email or Password",LoginActivity.this);
+                } else {
+                    Utils.alert("Please Enter Valid Email or Password", LoginActivity.this);
                 }
 
             }
         });
     }
 
-    private void methodLogin(){
-        String email=this.etEmail.getText().toString().trim();
-        String password=this.etPassword.getText().toString().trim();
-        if(email.length()>2&&password.length()>2){
+    private void methodLogin() {
+        String email = this.etEmail.getText().toString().trim();
+        String password = this.etPassword.getText().toString().trim();
+        if (email.length() > 2 && password.length() > 2) {
             Utils.saveValueInPref(Constants.EMAIL, email);
             Utils.saveValueInPref(Constants.PASSWORD, password);
 

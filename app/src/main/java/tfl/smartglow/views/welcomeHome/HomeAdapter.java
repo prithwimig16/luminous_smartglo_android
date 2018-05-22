@@ -52,9 +52,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeItemViewHo
         final ProgressBar pb = new ProgressBar(mActivity, null, android.R.attr.progressBarStyleHorizontal);
         Drawable d = new ProgressDrawable();
         pb.setProgressDrawable(d);
-        pb.setPadding(20, 40, 20, 0);
+        pb.setProgress(125);
+
+        pb.setPadding(20, 0, 20, 0);
         holder.ll.removeAllViews();
         holder.ll.addView(pb);
+        SeekBar seekBar = holder.seekBar;
 
         SeekBar.OnSeekBarChangeListener l = new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -85,13 +88,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeItemViewHo
 
         int[] maxs = {100};
         for (int i = 0; i < maxs.length; i++) {
-            SeekBar sb = new SeekBar(mActivity);
-            sb.setMax(maxs[i]);
+//            SeekBar sb = new SeekBar(mActivity);
+            seekBar.setMax(maxs[i]);
             //sb.setAlpha(0.8f);
-            sb.setAlpha(0.0f);
-            sb.setOnSeekBarChangeListener(l);
-            sb.setPadding(20, 0, 20, 0);
-            holder. ll.addView(sb);
+            seekBar.setAlpha(0.0f);
+            seekBar.setOnSeekBarChangeListener(l);
+            seekBar.setPadding(20, 0, 20, 0);
+           // holder.ll.addView(seekBar);
+            seekBar.getThumb().mutate().setAlpha(0);
         }
 
 //        setContentView(holder.ll);
@@ -153,6 +157,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeItemViewHo
         RelativeLayout relClickColorSelect;
         private Device item;
         LinearLayout ll;
+        SeekBar seekBar;
 
         //RelativeLayout relMain;
 
@@ -163,6 +168,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeItemViewHo
             relClickColorSelect = itemView.findViewById(R.id.rel_color_select);
             bulbBg=itemView.findViewById(R.id.img_bulb_bg);
             ll=itemView.findViewById(R.id.ll);
+            seekBar = itemView.findViewById(R.id.sb_bulb);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
 

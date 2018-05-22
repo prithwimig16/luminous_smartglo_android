@@ -7,24 +7,23 @@
     android:background="@drawable/rays"
     tools:context=".views.splashScreen.SplashScreenActivity">
 
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
-        android:src="@drawable/smart_glo_logo"/>
+        android:src="@drawable/smart_glo_logo" />
 
 
     <ImageView
+        android:id="@+id/img_led_bulb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/img_led_bulb"
-        android:layout_below="@+id/img_logo"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/led_lamp_2"/>
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/led_lamp_2" />
 
 
     <ImageView
@@ -34,7 +33,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="56dp"
         android:src="@drawable/new_logo_without_tag" />
-
 
 
 </RelativeLayout>

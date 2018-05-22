@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/signup_viewPageAndroid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollIndicators="bottom" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_marginRight="@dimen/dp_24"
+            android:orientation="vertical">
+
+            <it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_8"
+                app:itemSelectedColor="#202bf5"
+                app:itemUnselectedColor="#e3e3e3"></it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator>
+
+            <Button
+                android:id="@+id/btn_skip_or_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/skip_button" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+</LinearLayout>

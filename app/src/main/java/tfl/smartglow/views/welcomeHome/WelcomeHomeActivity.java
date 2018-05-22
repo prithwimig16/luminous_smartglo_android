@@ -5,12 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -47,6 +51,7 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
     String newMeshPassword = "";
     TextView mtextView;//tvNoOfBulb;
     private ArrayList<Device> devices;
+    // BottomNavigationItemView bottomNavigationView;
     //  BulbListAdapter adapter;
     HomeAdapter adapter;
     String colorCode;
@@ -61,12 +66,38 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
         super.onCreate(savedInstanceState);
         TelinkApplication.getInstance().doInit(getApplicationContext(), TelinkLightService.class);
         setContentView(R.layout.activity_welcome_home);
+//       bottomNavigationView=(BottomNavigationItemView)findViewById(R.id.bottom_navigation);
+
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.action_home:
+                                break;
+
+                            case R.id.action_schedule:
+                                break;
+
+                            case R.id.action_menu:
+                                break;
+
+                        }
+                        return true;
+                    }
+                });
+
+
         Config.getSharedInstance().applicationContext = this.getApplicationContext();
         FlowManager.init(this);
-        String email= Utils.getValueFromPref(Constants.EMAIL);
-        String password=Utils.getValueFromPref(Constants.PASSWORD);
+        String email = Utils.getValueFromPref(Constants.EMAIL);
+        String password = Utils.getValueFromPref(Constants.PASSWORD);
         newMeshName = email;//"abc123";//random(10);
-        newMeshPassword =password; //"123";//random(4);
+        newMeshPassword = password; //"123";//random(4);
         mtextView = findViewById(R.id.tv_connected_bulb_number);
         recyclerView = findViewById(R.id.rcv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(WelcomeHomeActivity.this);
@@ -81,22 +112,51 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
             @Override
             public void onClick(View v) {
                 //check whether ble on or not
-                if(isBluetoothEnabled() && locationServicesEnabled(WelcomeHomeActivity.this)){
-                Intent i = new Intent(WelcomeHomeActivity.this, DeviceActivity.class);
-                startActivity(i);
-                }
-                else{
+                if (isBluetoothEnabled() && locationServicesEnabled(WelcomeHomeActivity.this)) {
+                    Intent i = new Intent(WelcomeHomeActivity.this, DeviceActivity.class);
+                    startActivity(i);
+                } else {
                     //Utils.alert("Please Check your GPS and Bluetooth",WelcomeHomeActivity.this);
                     Intent callGPSSettingIntent = new Intent(android.provider.Settings.ACTION_SETTINGS);
-                    startActivityForResult(callGPSSettingIntent,4);
+                    startActivityForResult(callGPSSettingIntent, 4);
                 }
             }
         });
     }
+
+    private void onSelectBottomNavigation() {
+//        bottomNavigationView.setOnNavigatioItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//
+//                int itemId = item.getItemId();
+//                switch (itemId) {
+//
+//                    case R.id.action_home:
+//                        //tvPageTitle.setText(R.string.Home);
+//                       // currentFragment = SettingsFragment.start(R.id.container_zone, getSupportFragmentManager(), placeUid);
+//                        break;
+//
+//                    case R.id.action_schedule:
+//                        //tvPageTitle.setText(R.string.schedules);
+//                       // currentFragment = ZoneRecycleFragment.start(R.id.container_zone, getSupportFragmentManager(), placeUid);
+//                        break;
+//
+//                    case R.id.action_menu:
+//                       // tvPageTitle.setText(R.string.menu);
+//                        //currentFragment = CareFragment.start(R.id.container_zone, getSupportFragmentManager(), place);
+//                        break;
+//                }
+//                return true;
+//            }
+//        });
+    }
+
+
     protected void onResume() {
         super.onResume();
 
-        if(adapter.devices.size()<=0) {
+        if (adapter.devices.size() <= 0) {
             List<Device> all = DeviceTable.getAll();
             adapter.setDevices(all);
         }
@@ -106,8 +166,8 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
     @Override
     public void performed(Event<String> event) {
         List<Device> all = DeviceTable.getAll();
-        String email= Utils.getValueFromPref(Constants.EMAIL);
-        String password=Utils.getValueFromPref(Constants.PASSWORD);
+        String email = Utils.getValueFromPref(Constants.EMAIL);
+        String password = Utils.getValueFromPref(Constants.PASSWORD);
         for (Device device : all) {
             autoConnect(device.meshName, password, device.macAddress);
         }
@@ -149,7 +209,7 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
         selectedPosition = position;
         selectedObj = o;
         Intent i = new Intent(WelcomeHomeActivity.this, ColorPickerActivity.class);
-        if (selectedObj instanceof Device){
+        if (selectedObj instanceof Device) {
             i.putExtra(Constants.MAC_ADDRESS, ((Device) selectedObj).macAddress);
         }
 
@@ -160,9 +220,9 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // check if the request code is same as what is passed  here it is 2
-        if (requestCode == 2&&data!=null) {
-            int selectedColor =data.getIntExtra("COLOR_CODE", -1);
-            if (selectedObj instanceof Device){
+        if (requestCode == 2 && data != null) {
+            int selectedColor = data.getIntExtra("COLOR_CODE", -1);
+            if (selectedObj instanceof Device) {
                 String hexColor = String.format("#%06X", (0xFFFFFF & selectedColor));
                 String s1 = hexColor.substring(1, 3);
                 String s2 = hexColor.substring(3, 5);
@@ -177,23 +237,21 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
             }
 
             int color = data.getIntExtra("COLOR_CODE", -1);
-           if (selectedObj instanceof  Device){
-               Device device   = (Device) selectedObj;
-               device.color = color;
-               this.adapter.notifyItemChanged(selectedPosition, device);
-           }
+            if (selectedObj instanceof Device) {
+                Device device = (Device) selectedObj;
+                device.color = color;
+                this.adapter.notifyItemChanged(selectedPosition, device);
+            }
 
         }
-        if(requestCode==4){
-            if(isBluetoothEnabled() && locationServicesEnabled(WelcomeHomeActivity.this)){
+        if (requestCode == 4) {
+            if (isBluetoothEnabled() && locationServicesEnabled(WelcomeHomeActivity.this)) {
                 Intent i = new Intent(WelcomeHomeActivity.this, DeviceActivity.class);
                 startActivity(i);
+            } else {
+                Utils.alert("Please Check your GPS and Bluetooth", WelcomeHomeActivity.this);
             }
-            else{
-                Utils.alert("Please Check your GPS and Bluetooth",WelcomeHomeActivity.this);
-            }
-        }
-        else {
+        } else {
             adapter.notifyDataSetChanged();
         }
     }
@@ -202,8 +260,8 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
         return (byte) ((Character.digit(data.charAt(0), 16) << 4)
                 | Character.digit(data.charAt(1), 16));
     }
-    public boolean isBluetoothEnabled()
-    {
+
+    public boolean isBluetoothEnabled() {
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         return mBluetoothAdapter.isEnabled();
 
@@ -217,13 +275,13 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
         try {
             gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
         } catch (Exception ex) {
-            Log.e("TAG","Exception gps_enabled");
+            Log.e("TAG", "Exception gps_enabled");
         }
 
         try {
             net_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
         } catch (Exception ex) {
-            Log.e("TAG","Exception network_enabled");
+            Log.e("TAG", "Exception network_enabled");
         }
         return gps_enabled || net_enabled;
     }

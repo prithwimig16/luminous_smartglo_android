@@ -31,7 +31,10 @@
 
         <activity android:name=".views.SliderPage.SliderActivity" />
         <activity android:name=".views.LoginSignUp.LoginSignUpActivity" />
-        <activity android:name=".views.Login.LoginActivity"></activity>
+        <activity
+            android:name=".views.Login.LoginActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

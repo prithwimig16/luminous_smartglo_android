@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:id="@+id/rel_main"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_below="@+id/toolbar">
-
+        android:layout_below="@+id/toolbar"
+        android:padding="10dp">
 
 
         <RelativeLayout
+            android:id="@+id/rel_"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rel_"
             android:layout_below="@+id/relative1"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
-            android:background="#ffffff"
             android:layout_marginTop="20dp"
+            android:background="#ffffff"
             android:padding="10dp">
 
             <RelativeLayout
+                android:id="@+id/rel_color_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/rel_color_select"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="12dp">
@@ -64,28 +63,28 @@
                     android:src="@drawable/testsvg3" />
             </RelativeLayout>
             <!--<LinearLayout-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:id="@+id/liner1"-->
-                <!--android:baselineAligned="false"-->
-                <!--android:gravity="center"-->
-                <!--android:orientation="vertical">-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:id="@+id/liner1"-->
+            <!--android:baselineAligned="false"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
 
-                <!--<LinearLayout-->
-                    <!--android:layout_width="85dp"-->
-                    <!--android:layout_height="85dp"-->
-                    <!--android:id="@+id/linear_bulb_logo"-->
-                    <!--android:gravity="center"-->
-                    <!--android:background="@drawable/oval"-->
-                    <!--android:orientation="vertical">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="85dp"-->
+            <!--android:layout_height="85dp"-->
+            <!--android:id="@+id/linear_bulb_logo"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@drawable/oval"-->
+            <!--android:orientation="vertical">-->
 
-                    <!--<ImageView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:id="@+id/img_bulb_logo"-->
-                        <!--android:layout_height="50dp"-->
-                        <!--android:layout_gravity="center"-->
-                        <!--android:src="@drawable/ic_icon_bulbwhite" />-->
-                <!--</LinearLayout>-->
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:id="@+id/img_bulb_logo"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@drawable/ic_icon_bulbwhite" />-->
+            <!--</LinearLayout>-->
             <!--</LinearLayout>-->
             <!---->
             <!---->
@@ -102,7 +101,6 @@
                 android:text="Bulb 1"
                 android:textColor="#696969"
                 android:textSize="18sp" />
-
 
 
             <!--<io.techery.properratingbar.ProperRatingBar-->
@@ -122,23 +120,29 @@
             <!--app:prb_totalTicks="30"-->
             <!--android:layout_toRightOf="@+id/tv_bulb_name" />-->
 
-            <LinearLayout
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_toEndOf="@+id/tv_bulb_name_home"
-                android:layout_toRightOf="@+id/tv_bulb_name_home"
+                android:layout_height="@dimen/dp_50"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="10dp"
-                android:id="@+id/ll">
+                android:layout_toEndOf="@+id/tv_bulb_name_home"
+                android:layout_toRightOf="@+id/tv_bulb_name_home">
 
+                <LinearLayout
+                    android:id="@+id/ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                </LinearLayout>
 
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/sb_bulb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-            </LinearLayout>
-
-
+            </FrameLayout>
 
 
         </RelativeLayout>
