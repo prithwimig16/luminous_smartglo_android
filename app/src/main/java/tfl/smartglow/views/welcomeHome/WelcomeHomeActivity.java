@@ -42,6 +42,7 @@ import tfl.smartglow.model.DeviceOp;
 import tfl.smartglow.model.DeviceTable;
 import tfl.smartglow.utils.Config;
 import tfl.smartglow.utils.Utils;
+import tfl.smartglow.views.blueTooth.BlueToothActivity;
 import tfl.smartglow.views.colorPicker.ColorPickerActivity;
 import tfl.smartglow.views.device.DeviceActivity;
 
@@ -50,10 +51,11 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
     String newMeshName = "";
     String newMeshPassword = "";
     TextView mtextView;//tvNoOfBulb;
-    private ArrayList<Device> devices;
+    private ArrayList<Device> devices=new ArrayList<>();
     // BottomNavigationItemView bottomNavigationView;
     //  BulbListAdapter adapter;
     HomeAdapter adapter;
+
     String colorCode;
     ImageView imgAddDevice;
     int RED = 0, GREEN = 0, BLUE = 0;
@@ -104,7 +106,8 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
         recyclerView.setLayoutManager(linearLayoutManager);
         this.adapter = new HomeAdapter(this, this);
         recyclerView.setAdapter(adapter);
-        adapter.setDevices(DeviceTable.getAll());
+        //adapter.setDevices(DeviceTable.getAll());
+        adapter.setDevices(testBulb());
         TelinkApplication.getInstance().addEventListener("com.telink.bluetooth.light.EVENT_SERVICE_CONNECTED", this);
 
         this.imgAddDevice = (ImageView) findViewById(R.id.img_add);
@@ -117,39 +120,23 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
                     startActivity(i);
                 } else {
                     //Utils.alert("Please Check your GPS and Bluetooth",WelcomeHomeActivity.this);
-                    Intent callGPSSettingIntent = new Intent(android.provider.Settings.ACTION_SETTINGS);
-                    startActivityForResult(callGPSSettingIntent, 4);
+                    Intent i = new Intent(WelcomeHomeActivity.this, BlueToothActivity.class);
+                    startActivity(i);
                 }
             }
         });
     }
 
-    private void onSelectBottomNavigation() {
-//        bottomNavigationView.setOnNavigatioItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//
-//                int itemId = item.getItemId();
-//                switch (itemId) {
-//
-//                    case R.id.action_home:
-//                        //tvPageTitle.setText(R.string.Home);
-//                       // currentFragment = SettingsFragment.start(R.id.container_zone, getSupportFragmentManager(), placeUid);
-//                        break;
-//
-//                    case R.id.action_schedule:
-//                        //tvPageTitle.setText(R.string.schedules);
-//                       // currentFragment = ZoneRecycleFragment.start(R.id.container_zone, getSupportFragmentManager(), placeUid);
-//                        break;
-//
-//                    case R.id.action_menu:
-//                       // tvPageTitle.setText(R.string.menu);
-//                        //currentFragment = CareFragment.start(R.id.container_zone, getSupportFragmentManager(), place);
-//                        break;
-//                }
-//                return true;
-//            }
-//        });
+    private List<Device> testBulb(){
+        Device device=new Device();
+        device.deviceName="SmartG1";
+        device.macAddress="1";
+        Device device1=new Device();
+        device1.deviceName="SmartG2";
+        device1.macAddress="2";
+        devices.add(device1);
+        devices.add(device);
+        return devices;
     }
 
 

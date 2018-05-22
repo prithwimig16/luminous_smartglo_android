@@ -22,23 +22,19 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             public void run() {
 
-                if(isBluetoothEnabled()){
+
 
                 startActivity(new Intent(SplashScreenActivity.this, SliderActivity.class));
                 finish();
-                }
-                else{
-                    startActivity(new Intent(SplashScreenActivity.this,  SliderActivity.class));
-                    finish();
-                }
+
             }
         }, secondsDelayed * 1000);
     }
 
-    public boolean isBluetoothEnabled()
-    {
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        return mBluetoothAdapter.isEnabled();
-
-    }
+//    public boolean isBluetoothEnabled()
+//    {
+//        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+//        return mBluetoothAdapter.isEnabled();
+//
+//    }
 }
