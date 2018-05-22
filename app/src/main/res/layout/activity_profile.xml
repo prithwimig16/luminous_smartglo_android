@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:id="@+id/li_back"
+    android:background="@drawable/toolbar_bg"
+    android:padding="10dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_back"/>
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+
+        <com.cielyang.android.clearableedittext.ClearableEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/clet_email"
+            android:padding="10dp"
+            android:inputType="textNoSuggestions"
+            android:layout_marginTop="@dimen/dp_8"
+            app:clearIconDrawable="@drawable/ic_pencil_icon"
+            android:background="@drawable/ic_et_bg"
+            android:singleLine="true" />
+
+
+        <com.cielyang.android.clearableedittext.ClearableEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/clet_password"
+            android:padding="10dp"
+            android:inputType="textNoSuggestions"
+            android:layout_marginTop="@dimen/dp_16"
+            app:clearIconDrawable="@drawable/ic_pencil_icon"
+            android:background="@drawable/ic_et_bg"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_16">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/save"
+            android:textStyle="normal"
+            android:textColor="@color/color_white"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

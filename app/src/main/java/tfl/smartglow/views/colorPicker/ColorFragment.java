@@ -60,21 +60,24 @@ ColorPickerView colorPickerView;
         colorPickerView.setColorListener(new ColorListener() {
             @Override
             public void onColorSelected(ColorEnvelope colorEnvelope) {
-                p=colorEnvelope.getColor();
-                 q=colorEnvelope.getColorRGB();
-                String hexColor = String.format("#%06X", (0xFFFFFF & p));
-                String s1 = hexColor.substring(1, 3);
-                String s2 = hexColor.substring(3, 5);
-                String s3 = hexColor.substring(5, 7);
-                TelinkLightService.Instance().getAdapter().sendCommand(Opcode.BLE_GATT_OP_CTRL_E2.getValue(), 0x01, new byte[]{0x04, (byte) hexStringToByte(s1), (byte) hexStringToByte(s2), (byte) hexStringToByte(s3)});
-                DeviceOp deviceOp = new DeviceOp();
-                deviceOp.color = hexColor;
-                deviceOp.deviceName = device.deviceName;
-                deviceOp.macAddress = device.macAddress;
-                deviceOp.meshName = device.meshName;
-                device.color = p;
-                device.update();
 
+                if (device != null) {
+                    p = colorEnvelope.getColor();
+                    q = colorEnvelope.getColorRGB();
+                    String hexColor = String.format("#%06X", (0xFFFFFF & p));
+                    String s1 = hexColor.substring(1, 3);
+                    String s2 = hexColor.substring(3, 5);
+                    String s3 = hexColor.substring(5, 7);
+                    TelinkLightService.Instance().getAdapter().sendCommand(Opcode.BLE_GATT_OP_CTRL_E2.getValue(), 0x01, new byte[]{0x04, (byte) hexStringToByte(s1), (byte) hexStringToByte(s2), (byte) hexStringToByte(s3)});
+                    DeviceOp deviceOp = new DeviceOp();
+                    deviceOp.color = hexColor;
+                    deviceOp.deviceName = device.deviceName;
+                    deviceOp.macAddress = device.macAddress;
+                    deviceOp.meshName = device.meshName;
+                    device.color = p;
+                    device.update();
+
+                }
             }
 
         });

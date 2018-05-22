@@ -2,7 +2,9 @@ package tfl.smartglow.views.welcomeHome;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,17 +12,22 @@ import android.support.annotation.Nullable;
 
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cielyang.android.clearableedittext.ClearableEditText;
 import com.jingxun.meshlibtelink.TelinkLightService;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.telink.TelinkApplication;
@@ -187,9 +194,53 @@ public class WelcomeHomeActivity extends AppCompatActivity implements EventListe
 
     @Override
     public void onItemLongClick(Object o) {
-        TelinkLightService.Instance().login(Strings.stringToBytes(newMeshName, 16), Strings.stringToBytes(newMeshPassword, 16));
-        Toast.makeText(this, "item Long clicked ", Toast.LENGTH_SHORT).show();
+//        TelinkLightService.Instance().login(Strings.stringToBytes(newMeshName, 16), Strings.stringToBytes(newMeshPassword, 16));
+//        Toast.makeText(this, "item Long clicked ", Toast.LENGTH_SHORT).show();
+
+
+        alertDialog();
+       // alert();
+
+
     }
+
+    private void alertDialog(){
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.custom_alert_dialog, null);
+        final ClearableEditText etDeviceRename = alertLayout.findViewById(R.id.clet_rename);
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        // this is set the view from XML inside AlertDialog
+
+        alert.setView(alertLayout);
+        // disallow cancel of AlertDialog on click of back button and outside touch
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String changedDeviceName = etDeviceRename.getText().toString();
+
+                Toast.makeText(getBaseContext(), "New Device  Name: " + changedDeviceName, Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog dialog = alert.create();
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(0XFFa5a5a5);
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(0xFF6b90ff);
+        dialog.show();
+    }
+
+
+
+
+
 
     @Override
     public void onItemClick(Object o, int position) {

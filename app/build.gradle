@@ -6,6 +6,7 @@ android {
         applicationId "tfl.smartglow"
         minSdkVersion 19
         targetSdkVersion 27
+        vectorDrawables.useSupportLibrary = true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -17,6 +18,7 @@ android {
         }
     }
     def dbflow_version = "4.2.4"
+
 }
 
 dependencies {
@@ -27,6 +29,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:design:27.1.1'
     implementation project(':react-native-jxmesh-release')
+    implementation 'com.github.Cielsk:clearable-edittext:0.0.3'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:4.2.4"
     implementation "com.github.Raizlabs.DBFlow:dbflow-rx2:4.2.4"

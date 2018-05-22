@@ -14,4 +14,8 @@
     <string name="pasword">Password</string>
     <string name="welcome_home">Welcome Home</string>
     <string name="edit">Edit</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="rename">Rename</string>
+    <string name="save">Save</string>
 </resources>
